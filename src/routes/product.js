@@ -14,4 +14,5 @@ router.post('/products', checkAuth, (req, res) => {
     res.json(products);
 });
 
+
 module.exports = router;
