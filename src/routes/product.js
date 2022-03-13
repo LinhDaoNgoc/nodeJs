@@ -1,21 +1,13 @@
-const { Router } = require('express');
-const { checkAuth } = require('../middleware/checkAuth');
+import { Router } from 'express';
+import { create, get, list, remove, update } from '../controller/product';
+import { checkAuth } from '../middleware/checkAuth';
 
 const router = Router();
 
-//fake data
-const products = [{ id: 1, name: "Product A", }, { id: 2, name: "Product B", }];
+router.get("/products", checkAuth, list);
+router.get("/product/:id", get);
+router.post('/products', checkAuth, create);
+router.delete("/product/:id", remove);
+router.put("/product/:id", update)
 
-router.get("/products", checkAuth, (req, res) => { //get all
-    const products = [{ id: 1, name: "Product A", }, { id: 2, name: "Product B", },];
-    res.json(products);
-});
-
-router.post('/products', checkAuth, (req, res) => { //creat product
-    const products = [{ id: 1, name: "Product A", }, { id: 2, name: "Product B", },];
-    products.push(req.body);
-    res.json(products);
-});
-
-
-module.exports = router;
+export default router
