@@ -8,9 +8,15 @@ const Product = mongoose.model('Product', { name: String });
 export const list = (req, res) => { // get all
     res.json(products); false
 }
-export const get = (req, res) => { // get a product
-    const result = products.find(item => item.id === +req.params.id);
-    res.json(result);
+export const get = async (req, res) => { // get a product
+    try {
+        const product = await Product.find().exec();
+        res.json(product);
+    } catch (error) {
+        res.status(400).json({
+            message: "Thêm sản phẩm không thành công"
+        })
+    }
 }
 export const create = async (req, res) => { // create product
     try {
