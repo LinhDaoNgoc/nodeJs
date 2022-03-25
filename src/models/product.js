@@ -1,5 +1,5 @@
 
-import mongoose, { ObjectId } from "mongoose";
+import mongoose, { ObjectId }  from "mongoose";
 
 const productSchema = mongoose.Schema({
     name: {
@@ -20,7 +20,9 @@ const productSchema = mongoose.Schema({
         type: ObjectId,
         ref: "Category"
     }
-}, { timestamps: true })
+}, { timestamps: true} )
+
+
 
 export default mongoose.model('Product', productSchema);
 
