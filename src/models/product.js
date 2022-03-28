@@ -25,9 +25,3 @@ const productSchema = mongoose.Schema({
 
 
 export default mongoose.model('Product', productSchema);
-
-
-
-/**
- * POST { name: "Le Trong Dat"} => le-trong-dat
- */

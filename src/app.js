@@ -18,7 +18,7 @@ app.use("/api", categoryRouter);
 app.use("/api", authRouter)
 // connect database
 mongoose.connect("mongodb://localhost:27017/nodejs")
-    .then(() => console.log("Connect db thanh cong"))
+    .then(() => console.log("Kết nối DB thành công"))
     .catch((error) => console.log(error))
 // Connect
 const PORT = 8000;

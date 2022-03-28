@@ -29,7 +29,7 @@ export const isAuth = (req, res, next) => {
 export const isAdmin = (req, res, next) => {
     if(req.profile.role == 0) {
         return res.status(401).json({
-            message: "Ban khong phai la admin, chim cut"
+            message: "Bạn không phải là admin nên không được truy cập"
         })
     }
     next();
